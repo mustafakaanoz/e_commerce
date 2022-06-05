@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce'
 import { Products, Navbar, Cart } from './components';
 import { CardTravel } from '@material-ui/icons';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
+
 
 
 const App = () => {
@@ -31,11 +39,16 @@ const App = () => {
 
   console.log(cart);
   return (
-    <div style={{ display: 'flex' }}>
-      <Navbar totalItems={cart.total_items} />
-      {/* <Products products={products} addToCart={handleAddToCart} /> */}
-      <Cart cart={cart} />
-    </div>
+    <Router>
+      <div style={{ display: 'flex' }}>
+        <Navbar totalItems={cart.total_items} />
+        <Routes>
+          <Route exact path="/" element={<Products products={products} addToCart={handleAddToCart} />} />
+          <Route exact path="/cart" element={<Cart cart={cart} />} />
+        </Routes>
+      </div>
+    </Router>
+
   );
 };
 
