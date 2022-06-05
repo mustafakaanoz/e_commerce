@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce'
-import { Products, Navbar } from './components';
+import { Products, Navbar, Cart } from './components';
 import { CardTravel } from '@material-ui/icons';
 
 
@@ -33,7 +33,8 @@ const App = () => {
   return (
     <div style={{ display: 'flex' }}>
       <Navbar totalItems={cart.total_items} />
-      <Products products={products} addToCart={handleAddToCart} />
+      {/* <Products products={products} addToCart={handleAddToCart} /> */}
+      <Cart cart={cart} />
     </div>
   );
 };
