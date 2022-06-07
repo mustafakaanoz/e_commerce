@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce'
-import { Products, Navbar, Cart } from './components';
+import { Products, Navbar, Cart, Checkout } from './components';
 import { CardTravel } from '@material-ui/icons';
 import {
   BrowserRouter as Router,
@@ -64,6 +64,8 @@ const App = () => {
             handleUpdateCartQty={handleUpdateCartQty}
             handleRemoveFromCart={handleRemoveFromCart}
             handleEmptyCart={handleEmptyCart}
+          />} />
+          <Route exact path="/checkout" element={<Checkout
           />} />
         </Routes>
       </div>
